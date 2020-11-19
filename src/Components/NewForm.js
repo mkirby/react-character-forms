@@ -14,16 +14,19 @@ class NewForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => {
-        e.preventDefault()
-        this.setState({name: "", show: "", img: ""})
-        this.props.addNewCharacter({name: e.target.name.value,show: e.target.show.value,img: e.target.img.value })
-      }}>
-        <input name="name" placeholder="Character Name" value={this.state.name} onChange={this.changeHandler} style={{margin: "0 5px 0 0"}}/>
-        <input name="show" placeholder="Show Name" value={this.state.show} onChange={this.changeHandler} style={{margin: "0 5px 0 0"}}/>
-        <input name="img" placeholder="Image Url" value={this.state.img} onChange={this.changeHandler} style={{margin: "0 5px 0 0"}}/>
-        <input type="submit" />
-      </form>
+      <>
+        <p>Add New Character:</p>
+        <form onSubmit={e => {
+          e.preventDefault()
+          this.setState({name: "", show: "", img: ""})
+          this.props.addNewCharacter({name: e.target.name.value,show: e.target.show.value,img: e.target.img.value })
+        }}>
+          <input name="name" placeholder="Character Name" value={this.state.name} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
+          <input name="show" placeholder="Show Name" value={this.state.show} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
+          <input name="img" placeholder="Image Url" value={this.state.img} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
+          <input type="submit" />
+        </form>
+      </>
     )
   }
 }

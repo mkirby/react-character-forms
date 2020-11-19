@@ -24,7 +24,11 @@ class  App extends React.Component {
   }
 
   filteredCharacters = () => {
-    return this.state.api.filter(char => char.name.includes(this.state.searchedValue))
+    return this.state.api.filter(char => char.name.toLowerCase().includes(this.state.searchedValue.toLowerCase()))
+  }
+
+  handleSearch = (e) => {
+    this.setState({searchedValue: e.target.value})
   }
 
   render() {
@@ -32,7 +36,7 @@ class  App extends React.Component {
       <>
         <div className="index">
           <h1>Character Index</h1>
-          <Header addNewCharacter={this.addNewCharacter} />
+          <Header addNewCharacter={this.addNewCharacter} searchedValue={this.state.searchedValue} handleSearch={this.handleSearch}/>
           <CharacterCointainer characters={this.filteredCharacters()}/>
         </div>
       </>
