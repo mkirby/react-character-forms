@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React from 'react'
+import Header from './Containers/Header'
+import CharacterCointainer from './Containers/CharacterContainer';
+import characters from './api'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class  App extends React.Component {
+
+  state = {
+    api: characters,
+    searchedValue: ""
+  }
+
+  addNewCharacter = (characterObj) => {
+    console.log("Yabba dabba doo! Character Created!", characterObj)
+    //give character a fake id
+    let allIds = []
+    this.state.api.map(obj => allIds.push(obj.id))
+    const newId = Math.max(...allIds) + 1
+    characterObj.id = newId
+    // add character to state
+    let newArray = [...this.state.api, characterObj]
+    this.setState({api: newArray})
+  }
+
+  filteredCharacters = () => {
+    return this.state.api.filter(char => char.name.includes(this.state.searchedValue))
+  }
+
+  render() {
+    return (
+      <>
+        <div className="index">
+          <h1>Character Index</h1>
+          <Header addNewCharacter={this.addNewCharacter} />
+          <CharacterCointainer characters={this.filteredCharacters()}/>
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
