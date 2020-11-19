@@ -4,7 +4,7 @@ import CharacterCard from '../Components/CharacterCard'
 function CharacterContainer(props) {
   
   const renderCharacterCards = () => {
-    return props.characters.map(char => <CharacterCard key={char.id} character={char} />)
+    return props.characters.map(char => <CharacterCard key={char.id} character={char} clickHandler={props.clickHandler}/>)
   }
 
   return (

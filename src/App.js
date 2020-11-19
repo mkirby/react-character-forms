@@ -31,17 +31,37 @@ class App extends React.Component {
     this.setState({searchedValue: e.target.value})
   }
 
+  addToFavorites = (id) => {
+    let newArray = [...this.state.api]
+    let char = newArray.find(char => char.id === id)
+    char.favorite = true
+    this.setState({api: newArray})
+    console.log("added to favorites", id)
+  }
+
+  removeFromFavorites = (id) => {
+    let newArray = [...this.state.api]
+    let char = newArray.find(char => char.id === id)
+    char.favorite = false
+    this.setState({api: newArray})
+    console.log("removed from favorites", id)
+  }
+
+  favoriteCharacters = () => {
+    return this.state.api.filter(char => char.favorite)
+  }
+
   render() {
     return (
       <>
         <div className="index">
           <h1>Character Index</h1>
           <Header addNewCharacter={this.addNewCharacter} searchedValue={this.state.searchedValue} handleSearch={this.handleSearch}/>
-          <CharacterContainer characters={this.filteredCharacters()}/>
+          <CharacterContainer characters={this.filteredCharacters()} clickHandler={this.addToFavorites}/>
         </div>
         <div className="favorites">
           <h1>Character Favorites</h1>
-          <FavoriteContainer />
+          <FavoriteContainer characters={this.favoriteCharacters()} clickHandler={this.removeFromFavorites}/>
         </div>
       </>
     );

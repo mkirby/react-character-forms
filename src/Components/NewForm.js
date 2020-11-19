@@ -21,9 +21,9 @@ class NewForm extends React.Component {
           this.setState({name: "", show: "", img: ""})
           this.props.addNewCharacter({name: e.target.name.value,show: e.target.show.value,img: e.target.img.value })
         }}>
-          <input name="name" placeholder="Character Name" value={this.state.name} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
-          <input name="show" placeholder="Show Name" value={this.state.show} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
-          <input name="img" placeholder="Image Url" value={this.state.img} onChange={this.changeHandler} style={{"margin-right": "5px"}}/>
+          <input name="name" placeholder="Character Name" value={this.state.name} onChange={this.changeHandler} style={{"marginRight": "5px"}}/>
+          <input name="show" placeholder="Show Name" value={this.state.show} onChange={this.changeHandler} style={{"marginRight": "5px"}}/>
+          <input name="img" placeholder="Image Url" value={this.state.img} onChange={this.changeHandler} style={{"marginRight": "5px"}}/>
           <input type="submit" />
         </form>
       </>
