@@ -39,6 +39,10 @@ class  App extends React.Component {
           <Header addNewCharacter={this.addNewCharacter} searchedValue={this.state.searchedValue} handleSearch={this.handleSearch}/>
           <CharacterCointainer characters={this.filteredCharacters()}/>
         </div>
+        <div className="favorites">
+          <h1>Character Favorites</h1>
+
+        </div>
       </>
     );
   }

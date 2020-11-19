@@ -5,7 +5,7 @@ import SearchForm from '../Components/SearchForm'
 function Header(props) {
 
   return (
-    <div style={{border: "2px red solid", padding: "20px"}}>
+    <div>
       <NewForm addNewCharacter={props.addNewCharacter} />
       <SearchForm searchedValue={props.searchedValue} handleSearch={props.handleSearch}/>
     </div>
