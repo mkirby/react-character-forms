@@ -1,7 +1,7 @@
 import React from 'react'
 import CharacterCard from '../Components/CharacterCard'
 
-function CharacterCointainer(props) {
+function CharacterContainer(props) {
   
   const renderCharacterCards = () => {
     return props.characters.map(char => <CharacterCard key={char.id} character={char} />)
@@ -15,4 +15,4 @@ function CharacterCointainer(props) {
 
 }
 
-export default CharacterCointainer 
+export default CharacterContainer

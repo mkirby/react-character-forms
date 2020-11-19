@@ -1,11 +1,11 @@
 import React from 'react'
 import Header from './Containers/Header'
-import CharacterCointainer from './Containers/CharacterContainer';
+import CharacterContainer from './Containers/CharacterContainer';
+import FavoriteContainer from './Containers/FavoriteContainer';
 import characters from './api'
 import './App.css';
 
-class  App extends React.Component {
-
+class App extends React.Component {
   state = {
     api: characters,
     searchedValue: ""
@@ -37,11 +37,11 @@ class  App extends React.Component {
         <div className="index">
           <h1>Character Index</h1>
           <Header addNewCharacter={this.addNewCharacter} searchedValue={this.state.searchedValue} handleSearch={this.handleSearch}/>
-          <CharacterCointainer characters={this.filteredCharacters()}/>
+          <CharacterContainer characters={this.filteredCharacters()}/>
         </div>
         <div className="favorites">
           <h1>Character Favorites</h1>
-
+          <FavoriteContainer />
         </div>
       </>
     );
